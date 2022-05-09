@@ -20,17 +20,20 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-// app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // ================================ 
 // Import des modules de routages
 
 const user_router = require('./routes/users')
 const troc_router = require('./routes/trocs')
+const auth_router =require('./routes/auth')
 
 app.use('/users', user_router)
 app.use('/trocs', troc_router)
+app.use('/auth', auth_router)
+
 
 
 
